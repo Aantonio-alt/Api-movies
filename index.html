@@ -8,6 +8,9 @@
     <script src="js/funciones.js" defer ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,23 +26,49 @@
                     </ul>
                 </div>
             </div>
+
             <form class="search-form">
                 <input id="search-input" class="search-input" type="search" placeholder="Buscar Titulo" aria-label="Buscar">
             </form>
             <button id="search-button" class="search-button">Buscar</button>
+            
         </section>
     </header>
 
     <main>
         <section class="titulo_txt">
-            <h1>Titulos Recomendados</h1>
-            <hr>
-            <h2>Animes - Peliculas - Series</h2>
+            <h1 class="recomendaciones">Titulos Recomendados</h1>
+            <hr class="separador">
+            <h2 class="categorias">Animes - Peliculas - Series</h2>
         </section>
-        <section class="titulos_m">
+
+        <section class="titulos_m" id="titulos_m">
+            <div class="animes__titulos">
+                <!--Boceto -->
+                <div class="anime">
+                    <!-- <img class="tituloImg" src="img/img.jpg" alt="">
+                    <h2 class="nameTitulo">name</h2>
+                    <p class="descripcion">Descripcion</p>
+                    <button>Ver</button>
+                -->
+                </div>
+                <div class="anime">
+
+                </div>
+            </div>
+            <div class="peliculas__titulos">
+            
+            </div>
+            <div class="series__titulos">
+               
+            </div>
+        </section>
+       <!-- <button>Mas</button>-->
+        <section class="mostrar_busqueda">
 
         </section>
-        <button>Mas</button>
+ 
+
     </main>
 
 </body>

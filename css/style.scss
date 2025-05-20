@@ -21,6 +21,11 @@ p{
 ::-webkit-scrollbar {
     display: none;
 }
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 header {
     background-color: #363636; 
@@ -117,7 +122,81 @@ header {
     transition: transform 0.5s ease-in-out;
 
     &:hover {
-        background-color:#0077ff;
-        color: #ffffff;
+        background-color:#783737;
+        color: #ffffff; 
     }
+}
+
+.titulo_txt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Bebas Neue", sans-serif;
+    .recomendaciones{
+        font-size: 3rem;
+        font-weight: 700;
+        color: #363636; 
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .separador{
+        width: 30%;
+        height: 1px;
+        background-color: #363636; 
+        margin: .5rem 0;
+    }
+    .categorias{
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #363636; 
+        text-align: center;
+        padding-bottom: .3rem;
+    }
+}
+
+.titulos_m{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5rem;
+    overflow-y: hidden;
+    margin: 1rem;
+
+}
+.animes__titulos,
+.peliculas__titulos,
+.series__titulos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: .5rem;
+
+    img{
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+}
+.animes__titulos{
+    grid-column: 1;
+    display: flex;
+    flex-direction: row;
+}
+.peliculas__titulos{
+    grid-column: 2;
+}
+.series__titulos{
+    grid-column: 3;
+}
+
+
+.mostrar_busqueda{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: .5rem;
+}
+
+.tituloSerie{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
