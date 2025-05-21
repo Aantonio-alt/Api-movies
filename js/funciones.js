@@ -41,21 +41,22 @@ const searchTitulos = async (e) => {
             try{
                 const response = await axios.get(`https://api.tvmaze.com/search/shows?q=${buscarImput}`)
                 contenedorBusqueda.innerHTML = ``
+        
+                const resultados = response.data;  
 
-            for (const titulo of response.data) {
-                const nombre = titulo.show.name.toLowerCase()
-                if (nombre.includes(buscarImput.toLowerCase())) {
-                    const tituloTarjeta = crearTarjeta(titulo.show)
-                    contenedorBusqueda.appendChild(tituloTarjeta)
+                if (resultados.length > 0){
+                    for (const titulo of response.data) {
+                        const tituloTarjeta = crearTarjeta(titulo.show)
+                        contenedorBusqueda.appendChild(tituloTarjeta)
+                    }
+                } else{
+                        contenedorBusqueda.innerHTML = ``;
+                        const mensaje = document.createElement("p");
+                        mensaje.textContent = "No se encontraron resultados.";
+                        mensaje.classList.add("sin-resultados");
+                        contenedorBusqueda.appendChild(mensaje);
                 }
-            }
 
-            if (contenedorBusqueda.children.length === 0) {
-                const mensaje = document.createElement("p")
-                mensaje.textContent = "No se encontraron resultados."
-                mensaje.classList.add("sin-resultados")
-                contenedorBusqueda.appendChild(mensaje)
-            }
             
             } catch (error) {
                 console.error("Error: ", error)
@@ -89,13 +90,17 @@ const crearTarjeta = (titulo) => {
     nameTarjeta.classList.add("nameTitulo")
     nameTarjeta.textContent = titulo.name;
 
-    const description = document.createElement("p")
-    description.classList.add("descripcion")
-    description.textContent = titulo.summary.replace(/<[^>]*>?/gm, '')
+   ///7 const description = document.createElement("p")
+    //// description.classList.add("descripcion")
+   //// description.textContent = titulo.summary.replace(/<[^>]*>?/gm, '')
+
+    const idTittle = document.createElement("p")
+    idTittle.classList.add("idTittle")
+    idTittle.textContent = titulo.id
 
     tarjeta.appendChild(image)
     tarjeta.appendChild(nameTarjeta)
-    tarjeta.appendChild(description)
+    tarjeta.appendChild(idTittle)
 
     return tarjeta
 }
@@ -104,10 +109,8 @@ const crearTarjeta = (titulo) => {
 ///// RECOMENDACIONES 
 
 const crearTarjetaRecomendaciones = (titulo) => {
-    const tarjeta = document.querySelector(".animes__titulos")
-    tarjeta.classList.add("animes__titulos")
-
-    const anime = document.querySelector(".anime")
+    const anime = document.createElement("div")
+    anime.classList.add("anime")
 
     const image = document.createElement("img")
     image.classList.add("tituloImg")
@@ -118,29 +121,32 @@ const crearTarjetaRecomendaciones = (titulo) => {
     nameTarjeta.classList.add("nameTitulo")
     nameTarjeta.textContent = titulo.name;
 
-
-    tarjeta.appendChild(anime)
     anime.appendChild(image)
     anime.appendChild(nameTarjeta)
 
-    return tarjeta
+   // anime.addEventListener(`click`, () => {})
+
+    return anime
 }
+
 const titulos_m = document.querySelector(".titulos_m")
-const animeRec = document.querySelector(".anime")
 
 function llamarApi(recomendado) {
-    fetch(`https://api.tvmaze.com/search/shows?q=${recomendado}`)
+    fetch(`https://api.tvmaze.com/shows/${recomendado}`)
         .then((response) => response.json())
         .then((data) => {
-            for (const item of data) { // Limita a 4 resultados opcionalmente
-                const tarjeta = crearTarjetaRecomendaciones(item.show)
+                const tarjeta = crearTarjetaRecomendaciones(data)
                 titulos_m.appendChild(tarjeta)
-            }
         })
         .catch(error => {
             console.error("Error al obtener los datos:", error)
         })
 }
 
-llamarApi("girls und panzer")
-llamarApi("monogatari Series")
+llamarApi(12790)
+llamarApi(35288)
+llamarApi(4202)
+llamarApi(161)
+llamarApi(465)
+
+
