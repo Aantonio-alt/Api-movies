@@ -133,6 +133,11 @@ async function llamarApi(recomendado) {
         const response = await fetch(`https://api.tvmaze.com/shows/${recomendado}`);
         const data = await response.json();
         const tarjeta = crearTarjetaRecomendaciones(data);
+
+        tarjeta.addEventListener('click', () => {
+            llamarApiDescripcion(recomendado);
+        });
+
         titulos_m.appendChild(tarjeta);
 
     } catch (error) {
@@ -203,6 +208,8 @@ async function llamarApiDescripcion (identificador) {
     try {
         const response = await fetch(`https://api.tvmaze.com/shows/${identificador}`);
         const data = await response.json();
+
+        descripcion.innerHTML = ""; 
         const tarjeta = tarjetaDescriptiva(data);
         descripcion.appendChild(tarjeta);
 
