@@ -35,6 +35,12 @@ const crearTarjeta = (titulo) => {
     tarjeta.appendChild(nameTarjeta)
     tarjeta.appendChild(idTittle)
 
+    tarjeta.addEventListener(`click` , () => {
+        descripcion.innerHTML = ``
+        llamarApiDescripcion(titulo.id)
+        mostarEpisodio(titulo.id);
+
+    })
     return tarjeta
 }
 
@@ -68,13 +74,14 @@ const searchTitulos = async (e) => {
             try{
                 const response = await axios.get(`https://api.tvmaze.com/search/shows?q=${buscarImput}`)
                 contenedorBusqueda.innerHTML = ``
-        
                 const resultados = response.data;  
 
                 if (resultados.length > 0){
                     for (const titulo of response.data) {
                         const tituloTarjeta = crearTarjeta(titulo.show)
                         contenedorBusqueda.appendChild(tituloTarjeta)
+                        
+                        
                     }
                 } else{
                         contenedorBusqueda.innerHTML = ``;
@@ -136,6 +143,7 @@ async function llamarApi(recomendado) {
 
         tarjeta.addEventListener('click', () => {
             llamarApiDescripcion(recomendado);
+            mostarEpisodio(recomendado);
         });
 
         titulos_m.appendChild(tarjeta);
@@ -152,6 +160,7 @@ llamarApi(161)
 llamarApi(465)
 
 
+
 ///// Tarjeta Descriptiva 
 
 const descripcion = document.querySelector(".item__grid_5")
@@ -162,7 +171,17 @@ const tarjetaDescriptiva = (tarjetaDesc) => {
 
     const imagen = document.createElement("img")
     imagen.classList.add("img__descripcion")
-    imagen.src = tarjetaDesc.image.original
+    if (tarjetaDesc.image){
+        if (tarjetaDesc.image.original){
+            imagen.src = tarjetaDesc.image.original
+        } else if (tarjetaDesc.image.medium){
+            imagen.src = tarjetaDesc.image.medium
+        } else {
+            imagen.src = "/img/sinImagen.jpg "
+        }
+    } else {
+        imagen.src = "/img/sinImagen.jpg "
+    }
     imagen.alt = tarjetaDesc.name
 
     const nombre = document.createElement("h2")
@@ -171,15 +190,28 @@ const tarjetaDescriptiva = (tarjetaDesc) => {
 
     const description = document.createElement("p")
     description.classList.add("descripcion")
-    description.textContent = tarjetaDesc.summary.replace(/<[^>]*>?/gm, '')
+    if (tarjetaDesc.summary) {
+        description.textContent = tarjetaDesc.summary.replace(/<[^>]*>?/gm, '');
+    } else {
+        description.textContent = "No hay descripción disponible para este título.";
+    }
 
     const generos = document.createElement("p")
     generos.classList.add("generos__descripcion")
-    generos.textContent = tarjetaDesc.genres
+    if (tarjetaDesc.genres && tarjetaDesc.genres.length > 0){
+        generos.textContent = `Géneros: ${tarjetaDesc.genres.join(", ")}`
+    } else {
+        generos.textContent = "Generos: No especificados"
+    }
 
     const valoracion = document.createElement("h2")
     valoracion.classList.add("valoracion__descripcion")
-    valoracion.textContent = `Raiting de los usuarios ${tarjetaDesc.rating.average}`
+
+        if (tarjetaDesc.rating.average === null){
+        valoracion.textContent = "Sin Raiting"
+        } else {
+        valoracion.textContent = `Raiting: ${tarjetaDesc.rating.average}`
+        }
 
     const banner = document.createElement("img")
     banner.classList.add("banner__descripcion")
@@ -189,7 +221,6 @@ const tarjetaDescriptiva = (tarjetaDesc) => {
     const contenedorDeTexto = document.createElement("div")
     contenedorDeTexto.classList.add("contenedor__text")
 
-    
 
     descripcion.appendChild(contenedor)
     contenedor.appendChild(imagen)
@@ -218,9 +249,60 @@ async function llamarApiDescripcion (identificador) {
     }
 }
 
-llamarApiDescripcion(4202)
+llamarApiDescripcion(67017)
 
 
 
+
+
+
+///EPISODES 
+
+const item__grid_6 = document.querySelector(".contenedor__caps")
+
+const episodiosContain = (episodio) => {
+
+    const contenedorEp = document.createElement("div")
+    contenedorEp.classList.add("contenedor__episodes")
+
+    const nombreEpisodio = document.createElement("h2")
+    nombreEpisodio.classList.add("nombre__episodio")
+    nombreEpisodio.textContent = episodio.name
+
+
+    const numerEpisode = document.createElement("p")
+    numerEpisode.classList.add("episodio__numero")
+    numerEpisode.textContent = episodio.number
+
+    const airDate = document.createElement("p")
+    airDate.classList.add("air__date")
+    airDate.textContent = episodio.airdate
+
+    item__grid_6.appendChild(contenedorEp)
+    contenedorEp.appendChild(nombreEpisodio)
+    contenedorEp.appendChild(numerEpisode)
+    contenedorEp.appendChild(airDate)
+
+    return contenedorEp
+}     
+
+async function mostarEpisodio (chapter = 83739) {
+    try{
+        const response = await fetch(`https://api.tvmaze.com/shows/${chapter}/episodes`)
+        const data = await response.json()
+        item__grid_6.innerHTML = ""; 
+
+        data.forEach(episodio => {
+            episodiosContain(episodio)
+        });
+
+    } catch (error){
+        console.error("Error: ", error)
+    }
+}
+
+mostarEpisodio(67017)
 
 })
+
+
