@@ -21,9 +21,11 @@
 html, body {
     width: 100%;
     min-height: 100dvh;
+    
   }
 body{
     position: relative;
+    
 }
 h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
@@ -37,6 +39,7 @@ p{
 body{
     display: grid;
     grid-template-columns: auto 1fr auto;
+    justify-items: center;
 }
 .header__grid{
     grid-row: 1;
@@ -58,7 +61,7 @@ header {
     padding: .9rem 0;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 100vw;
 }
 
 .header__container {
@@ -152,11 +155,13 @@ header {
         color: #ffffff; 
     }
 }
-
+main{
+    max-width: 120rem;
+}
 .grid__container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
-    grid-template-rows: auto  auto 1fr  ;
+    grid-template-rows: auto  auto 1fr  auto  ;
     margin: 1rem;
 }
 
@@ -271,7 +276,7 @@ header {
 }
 
 .item__grid_5{
-    grid-row: 3;
+    grid-row: 3/5;
     grid-column: 1/4;
     display: flex;
     justify-content: center;
@@ -423,7 +428,9 @@ header {
 
     }
 }
-
+.item__grid_7{
+    padding-top: 2rem;
+}
 footer{
     display: flex;
     justify-content: center;
