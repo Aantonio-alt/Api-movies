@@ -106,7 +106,6 @@ main{
     align-items: center;
     border-radius: 5px;
     padding: .5rem ;
-    cursor: pointer;
     max-height: 55rem;
 
     
@@ -120,6 +119,7 @@ main{
     display: flex;
     flex-direction: column;
     max-width: 200px;
+    cursor: pointer;
 }
 
 .item__grid_5{

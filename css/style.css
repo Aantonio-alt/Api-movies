@@ -272,7 +272,6 @@ main {
   align-items: center;
   border-radius: 5px;
   padding: 0.5rem;
-  cursor: pointer;
   max-height: 55rem;
 }
 .mostrar_busqueda img {
@@ -284,6 +283,7 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 200px;
+  cursor: pointer;
 }
 
 .item__grid_5 {
