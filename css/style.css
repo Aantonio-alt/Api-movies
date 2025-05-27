@@ -66,14 +66,15 @@ body {
 header {
   background-color: #363636;
   padding: 0.9rem 0;
+  width: 100vw;
   display: flex;
   justify-content: center;
-  width: 100vw;
   align-items: center;
 }
 
 .header__container {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #fff;
   border-radius: 20px;
@@ -84,6 +85,7 @@ header {
 
 .logo {
   width: 4rem;
+  cursor: pointer;
 }
 
 .dropdown {

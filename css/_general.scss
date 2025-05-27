@@ -1,0 +1,48 @@
+/*
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.ancizar-sans-<uniquifier> {
+  font-family: "Ancizar Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+*/
+$color-normal: #333;
+
+@mixin centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+%color-base{
+    background-color: #333;
+} 
+// Reset CSS básico 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 0;    
+  }
+html, body {
+    width: 100%;
+    min-height: 100dvh;
+    
+  }
+body{
+    position: relative;
+    
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}    
+p{
+    text-wrap: pretty;
+}
+::-webkit-scrollbar {
+    display: none;
+}
