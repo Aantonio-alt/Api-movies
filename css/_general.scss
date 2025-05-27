@@ -10,6 +10,11 @@
   font-weight: <weight>;
   font-style: normal;
 }
+  .bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 */
 $color-normal: #333;
 
@@ -45,4 +50,122 @@ p{
 }
 ::-webkit-scrollbar {
     display: none;
+}
+
+body{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    justify-items: center;
+}
+.header__grid{
+    grid-row: 1;
+}
+.main__grid{
+    grid-row: 2;
+}
+.footer__grid{
+    grid-row: 3;
+}
+
+header {
+    background-color: #363636; 
+    padding: .9rem 0;
+    width: 100vw;
+    @include centrar();
+    position: sticky;
+    top: 0rem;
+    z-index: 1;
+}
+
+.header__container {
+    @include centrar();
+    background-color: #fff;
+    border-radius: 20px;
+    padding: .2rem 2rem;
+    flex-direction: row;
+    max-height: 10rem;
+}
+
+.logo {
+    width: 3rem;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.button-options {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 120px;
+    margin-top: 0.5rem;
+}
+
+.options ul {
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.options li a {
+    display: block;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.options li a:hover {
+    background-color: #eee;
+}
+
+.options.active {
+    display: block;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background-color: #363636; 
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+        background-color:#783737;
+        color: #ffffff; 
+    }
 }

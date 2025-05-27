@@ -1,124 +1,5 @@
 @import "../css/general";
 
-body{
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    justify-items: center;
-}
-.header__grid{
-    grid-row: 1;
-}
-.main__grid{
-    grid-row: 2;
-}
-.footer__grid{
-    grid-row: 3;
-}
-.bebas-neue-regular {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-header {
-    background-color: #363636; 
-    padding: .9rem 0;
-    width: 100vw;
-    @include centrar();
-}
-
-.header__container {
-    @include centrar();
-    background-color: #fff;
-    border-radius: 20px;
-    padding: .2rem 2rem;
-    flex-direction: row;
-    max-height: 15rem;
-}
-
-.logo {
-    width: 4rem;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-}
-
-.button-options {
-    display: flex;
-    align-items: center;
-    padding: 0.7rem 1rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.options {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    width: 120px;
-    margin-top: 0.5rem;
-}
-
-.options ul {
-    list-style: none;
-    padding: 0.5rem 0;
-}
-
-.options li a {
-    display: block;
-    padding: 0.7rem 1.2rem;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.options li a:hover {
-    background-color: #eee;
-}
-
-.options.active {
-    display: block;
-}
-
-.search-form {
-    display: flex;
-    align-items: center;
-}
-
-.search-input {
-    padding: 0.7rem 1rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-}
-
-.search-button {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    background-color: #363636; 
-    color: #ffffff;
-    border: none;
-    font-weight: 700;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    transition: transform 0.5s ease-in-out;
-
-    &:hover {
-        background-color:#783737;
-        color: #ffffff; 
-    }
-}
 main{
     max-width: 120rem;
 }
@@ -126,7 +7,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
     grid-template-rows: auto  auto 1fr  auto  ;
-    margin: 0rem 1rem 1rem 1rem ;
+    margin: 1rem ;
 }
 
 .titulo_txt{
@@ -217,8 +98,9 @@ main{
     gap: .5rem;
     flex-direction: column;
     overflow-y: auto;
-    height: 100vh;
-    min-width: 15rem;
+    height: 90vh;
+    width: 100%;
+    min-width: 10rem;
     overscroll-behavior-y: contain;
     justify-content: start;
     align-items: center;
@@ -252,7 +134,7 @@ main{
     font-weight: 700;
     width: 100%;
     border-radius: 20px;
-    max-height: 30rem;
+    max-height: 23rem;
     overscroll-behavior-y: contain;
 
     .contenedor__descripcion{
@@ -337,10 +219,9 @@ main{
     grid-row: 3;
     padding: 1rem .5rem;
     background-color: #333;
-    max-height: 28rem;
+    max-height: 21rem;
     border-radius: 10px;
     margin: 1rem .3rem;
-    width: 100%;
     h2{
         font-family: "Bebas Neue", sans-serif;
     }
@@ -351,7 +232,7 @@ main{
         flex-direction: column;
         gap: .5rem;
         overflow-y: scroll;
-        height: 24rem;
+        height: 17rem;
         overscroll-behavior-y: contain;
     }
     .titulo__caps{
@@ -435,13 +316,10 @@ footer{
 }
 
 @media (max-width: 1040px)  {
-
-
     .grid__container{
         display: grid;
-        grid-template-columns: 2fr auto;
+        grid-template-columns: 3fr 1fr;
         grid-template-rows: repeat(5, auto);
-        margin: 0rem 1rem 1rem 1rem ;
     }
     .titulo_txt{
         grid-row: 1;
@@ -508,5 +386,61 @@ footer{
             max-height: 13rem;
         }
     }
+    .item__grid_4{
 
+        .titulo__busqueda{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 530px)  {
+    .grid__container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+    }
+
+    .item__grid_1{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .titulos_m{
+        grid-row: 3;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+
+        .tituloImg {
+            max-height: 7rem;
+        }
+    }
+    .mostrar_busqueda{
+        grid-column: 1;
+        grid-row: 1;
+        flex-direction: row;
+        align-items: start;
+        height: auto;
+        width: 100vw;
+        overflow-x: auto;
+        min-width: 10rem;
+
+        .tituloSerie{
+            width: 100%;
+            min-width: 8rem
+        }
+    }
+
+    .item__grid_4{
+        display: none;
+
+    }
+    .item__grid_5{
+        grid-row: 4;
+    }
+    .item__grid_6{
+        grid-row: 5;
+    }
+    .item__grid_7{
+        display: none;
+    }
 }
