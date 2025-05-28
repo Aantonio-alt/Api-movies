@@ -73,7 +73,7 @@ header {
     width: 100vw;
     @include centrar();
     position: sticky;
-    top: 0rem;
+    top: -.1rem;
     z-index: 1;
 }
 
@@ -163,6 +163,9 @@ header {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         background-color:#783737;
