@@ -433,10 +433,12 @@ footer{
                 padding: .5rem 1rem;
             }
             .search-input{
-                padding: .5rem 1rem;
-                margin: .3rem;
-                width: 3rem;
+                padding: .3rem 1rem;
+                margin: .3rem 0 .3rem .3rem;
+                width: 5rem;
                 border-radius: 10px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
             }
             .button-options{
                 font-size: .8rem;

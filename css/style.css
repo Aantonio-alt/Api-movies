@@ -579,10 +579,12 @@ footer a {
     padding: 0.5rem 1rem;
   }
   .header__grid .header__container .search-input {
-    padding: 0.5rem 1rem;
-    margin: 0.3rem;
-    width: 3rem;
+    padding: 0.3rem 1rem;
+    margin: 0.3rem 0 0.3rem 0.3rem;
+    width: 5rem;
     border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
   .header__grid .header__container .button-options {
     font-size: 0.8rem;
