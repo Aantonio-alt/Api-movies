@@ -22,20 +22,20 @@ main{
     .recomendaciones{
         font-size: 3rem;
         font-weight: 700;
-        color: #363636; 
+        color: #5d3c64; 
         text-align: center;
         margin-top: 1rem;
     }
     .separador{
         width: 30%;
         height: 1px;
-        background-color: #363636; 
+        background-color: $color-fondo; 
         margin: .5rem 0;
     }
     .categorias{
         font-size: 1.5rem;
         font-weight: 700;
-        color: #363636; 
+        color: $color-subtitulo; 
         text-align: center;
         padding-bottom: .3rem;
     }
@@ -84,7 +84,7 @@ main{
     padding: .5rem 1rem;
     justify-content: center;
     font-family: "Bebas Neue", sans-serif;
-    background-color: #363636;
+    background-color: $color-fondo;
     border-radius: 5px;
     color: rgb(255, 255, 255);
     font-size: 1.5rem;
@@ -134,7 +134,7 @@ main{
     display: none;
     justify-content: center;
     align-self: center;
-    background-color: #333;
+    background-color: $color-fondo;
     margin: 0 .8rem;
     padding: .5rem;
     border-radius: 10px;
@@ -143,7 +143,7 @@ main{
     display: flex;
     justify-content: center;
     align-self: center;
-    background-color: #333;
+    background-color: $color-fondo;
     margin: 0 .8rem;
     padding: .5rem;
     border-radius: 10px;
@@ -181,7 +181,7 @@ main{
             display: flex;
             padding: 1rem 0 .6rem 1rem;
             width: 100%;
-            background-color:#333;
+            background-color:$color-fondo;
             color: white;
             border-top-right-radius: 20px;
             letter-spacing: .3rem;
@@ -252,7 +252,7 @@ main{
     grid-column: 4;
     grid-row: 4;
     padding: 1rem .5rem;
-    background-color: #333;
+    background-color: $color-fondo;
     max-height: 21rem;
     border-radius: 10px;
     margin: 1rem .3rem;
@@ -314,42 +314,93 @@ main{
     padding-top: 2rem;
 }
 footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #363636; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    background-color: $color-fondo; 
     padding: 1rem 0;
     width: 100%;
-    flex-direction: row;
-    height: 16rem;
+    height: auto;
 
-    ul{
-        display: flex;
-        gap: 1rem;
-        list-style: none;
+    p{
+    font-family: "Ancizar Sans", sans-serif;
     }
-    li{
+    a{
+        cursor: pointer;
+        color: $color-text;
+        font-size: 1.1rem;
+        text-decoration: none;
+        font-family: "Ancizar Sans", sans-serif;
+
+    }
+
+    .name__page{
+        grid-column: 1;
+        grid-row: 1;
+        padding: 1rem 2rem;
+        hr{
+            color: #ffffff;
+        }
+        h2{
+            font-size: 3rem;
+            color: #ffffff;
+            font-family: "Bebas Neue", sans-serif;
+        }
+        p{
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+    }
+    .info__footer{
+        grid-column: 2;
+        grid-row: 1;
+        padding: 1rem 2rem;
+        border-radius: 15px;
+        margin: 1rem 2rem;
+        p{
+            font-size: 1.1rem;
+            padding-bottom:.2rem;
+            color: #ffffff;
+        }
+        a{
+            color: #ffffff;
+        }
+
+    }
+    .redes__sociales{
+        grid-column: 1;
+        grid-row: 2;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem 1rem;
-        background-color: transparent;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        color: #ffffff;
-
-        &:hover {
-            background-color: #eee;
+        gap: 1rem;
+        a{
+            color: #ffffff;
+            font-size: 2rem;
         }
     }
-    a{
-        text-decoration: none;
-        color: #ffffff;
+    .page__content{
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0rem 2rem 1rem 2rem;
+        a{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 30%;
+            color: $color-fondo;
+            background-color: #ffffff;
+            padding: .5rem 1rem;
+            border-radius: 15px;
+        }
     }
 }
 
 @media (max-width: 1040px)  {
+
     .grid__container{
         display: grid;
         grid-template-columns: 3fr 1fr;
@@ -419,9 +470,32 @@ footer{
         grid-column: 1/3;
         grid-row: 5;
     }
+    footer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto auto;
+    .name__page{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .info__footer{
+        grid-column: 1;
+        grid-row: 2;           
+    }
+    .redes__sociales{
+        grid-column: 1;
+        grid-row: 3;  
+        padding-bottom: 2rem;         
+    }
+    .page__content{
+        grid-column: 1;
+        grid-row: 4;           
+    }
+}
 }
 
 @media (max-width: 820px)  {
+
     .titulos_m{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -460,6 +534,7 @@ footer{
             }
         }
     }
+
 }
 
 @media (max-width: 530px)  {

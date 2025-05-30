@@ -16,7 +16,9 @@
   font-style: normal;
 }
 */
-$color-normal: #333;
+$color-fondo: #0c0420;
+$color-text: #5d3c64;
+$color-subtitulo: #7b466a;
 
 @mixin centrar {
     display: flex;
@@ -68,7 +70,7 @@ body{
 }
 
 header {
-    background-color: #363636; 
+    background-color: $color-fondo; 
     padding: .9rem 0;
     width: 100vw;
     @include centrar();
@@ -103,7 +105,7 @@ header {
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
-    color: #555;
+    color: $color-text;
 }
 
 .options {
@@ -128,7 +130,7 @@ header {
     display: block;
     padding: 0.7rem 1.2rem;
     text-decoration: none;
-    color: #333;
+    color: $color-text;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -156,7 +158,7 @@ header {
 .search-button {
     padding: 0.8rem 1rem;
     font-size: 1rem;
-    background-color: #363636; 
+    background-color: $color-fondo; 
     color: #ffffff;
     border: none;
     font-weight: 700;
@@ -168,7 +170,7 @@ header {
     justify-content: center;
 
     &:hover {
-        background-color:#783737;
+        background-color:$color-text;
         color: #ffffff; 
     }
 }
