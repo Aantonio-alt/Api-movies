@@ -103,6 +103,7 @@ header {
   cursor: pointer;
   font-size: 1.1rem;
   color: #5d3c64;
+  font-family: "Ancizar Sans", sans-serif;
 }
 
 .options {
@@ -129,8 +130,8 @@ header {
   text-decoration: none;
   color: #5d3c64;
   transition: background-color 0.2s ease-in-out;
+  font-family: "Ancizar Sans", sans-serif;
 }
-
 .options li a:hover {
   background-color: #eee;
 }
@@ -880,6 +881,7 @@ header {
   cursor: pointer;
   font-size: 1.1rem;
   color: #5d3c64;
+  font-family: "Ancizar Sans", sans-serif;
 }
 
 .options {
@@ -906,8 +908,8 @@ header {
   text-decoration: none;
   color: #5d3c64;
   transition: background-color 0.2s ease-in-out;
+  font-family: "Ancizar Sans", sans-serif;
 }
-
 .options li a:hover {
   background-color: #eee;
 }
